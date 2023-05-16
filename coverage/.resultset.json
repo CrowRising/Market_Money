@@ -280,14 +280,14 @@
         "lines": [
           1,
           1,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -296,11 +296,11 @@
         "lines": [
           1,
           1,
-          10,
-          10,
-          10,
-          10,
-          10,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -326,41 +326,19 @@
           1,
           1,
           null,
-          null,
           1,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null
         ]
       },
       "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/application_record.rb": {
         "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/controllers/api/v0/markets_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/vendor.rb": {
-        "lines": [
-          1,
           1,
           1,
           null
@@ -373,8 +351,16 @@
           1,
           null
         ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1684198631
+    "timestamp": 1684206537
   }
 }
