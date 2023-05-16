@@ -280,14 +280,27 @@
         "lines": [
           1,
           1,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          null,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/spec/factories/vendors.rb": {
+        "lines": [
+          1,
+          1,
+          10,
+          10,
+          10,
+          10,
+          10,
           null,
           null
         ]
@@ -310,6 +323,12 @@
       "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/market.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
           null
         ]
       },
@@ -326,6 +345,10 @@
           1,
           1,
           null,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -334,8 +357,24 @@
           1,
           null
         ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/market_vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1684187501
+    "timestamp": 1684198631
   }
 }

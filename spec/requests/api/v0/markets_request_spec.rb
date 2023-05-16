@@ -5,7 +5,6 @@ require 'rails_helper'
     create_list(:market, 3)
 
     get '/api/v0/markets'
-#require 'pry'; binding.pry
     expect(response).to be_successful
 
     markets = JSON.parse(response.body, symbolize_names: true)
@@ -38,4 +37,20 @@ require 'rails_helper'
       expect(market[:lon]).to be_an(String)
     end
   end
+
+  it 'has vendor count of each market' do
+    #require 'pry'; binding.pry
+    @market_1 = create(:market)
+    @market_2 = create(:market)
+    @market_3 = create(:market)
+    create_list(:vendor, 4, market_ids: @market_1.id)
+    create_list(:vendor, 2, market_ids: @market_2.id)
+    create_list(:vendor, 3, market_ids: @market_3.id)
+
+    get "/api/v0/markets/#{@market_1.id}"
+    expect(response).to be_successful
+
+    # markets = JSON.parse(response.body, symbolize_names: true)
+  end
+
  end
