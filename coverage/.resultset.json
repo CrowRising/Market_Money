@@ -280,14 +280,14 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           null
         ]
@@ -296,11 +296,11 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          14,
+          14,
+          14,
+          14,
+          4,
           null,
           null
         ]
@@ -312,40 +312,14 @@
           1,
           1,
           1,
+          1,
+          null,
+          1,
           null,
           null,
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/vendor.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/market_vendor.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null
         ]
       },
@@ -365,8 +339,94 @@
           1,
           null
         ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/models/market_vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/controllers/api/v0/vendors_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          1,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/3Mod/Projects/market_money/app/serializers/vendor_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1684206950
+    "timestamp": 1684273325
   }
 }

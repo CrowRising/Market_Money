@@ -4,6 +4,6 @@ FactoryBot.define do
    description { Faker::Commerce.product_name }
    contact_name { Faker::Name.name }
    contact_phone { Faker::PhoneNumber.phone_number}
-   credit_accepted { Faker::Boolean.boolean }
+   credit_accepted { [true, false].sample }
   end
 end

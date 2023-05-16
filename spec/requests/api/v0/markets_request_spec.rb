@@ -30,7 +30,7 @@ describe "markets api" do
   end
 
   it 'has vendor count of each market' do
-    #require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     @market_1 = create(:market)
     @market_2 = create(:market)
     @market_3 = create(:market)
@@ -78,7 +78,7 @@ describe "markets api" do
     expect(markets[:attributes][:vendor_count]).to eq(3)
   end
 
-  it 'displays all market attributes with vaid market id' do
+  it 'displays all market attributes with valid market id' do
     @market_1 = create(:market)
     @market_2 = create(:market)
     @market_3 = create(:market)
@@ -99,13 +99,18 @@ describe "markets api" do
     expect(markets[:attributes][:zip]).to eq(@market_1.zip)
     expect(markets[:attributes][:lat]).to eq(@market_1.lat)
     expect(markets[:attributes][:lon]).to eq(@market_1.lon)
+    # expect(markets[:attributes][:vendor_count]).to eq(4)
   end
 
-  xit 'displays error message if incorrect id is passed' do
+  it 'displays error message if incorrect id is passed' do
     @market_1 = create(:market)
     create_list(:vendor, 4, market_ids: @market_1.id)
 
-    get "/api/v0/markets/#{@market_3.id}"
+    get "/api/v0/markets/4050033"
     expect(response).to_not be_successful
+
+    markets = JSON.parse(response.body, symbolize_names: true)
+
+    expect(markets).to eq({ "error": "Couldn't find Market with 'id'=4050033" })
   end
  end
