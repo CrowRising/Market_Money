@@ -131,7 +131,7 @@ describe 'vendors api' do
     }
     headers = { 'CONTENT_TYPE' => 'application/json' }
     patch "/api/v0/vendors/#{vendor_id}", headers:, params: JSON.generate(vendor: vendor_params)
-    
+
     vendor = Vendor.find_by(id: vendor_id)
 
     expect(response).to be_successful
@@ -141,8 +141,8 @@ describe 'vendors api' do
   end
 
   it 'displays an error if updating and id is incorrect' do
-    vendor_id = create(:vendor).id
-    previous = Vendor.last.contact_name
+    create(:vendor).id
+    Vendor.last.contact_name
     vendor_params = {
       name: 'Buzzy Bees',
       description: 'local honey and wax products',
@@ -151,7 +151,7 @@ describe 'vendors api' do
       credit_accepted: false
     }
     headers = { 'CONTENT_TYPE' => 'application/json' }
-    patch "/api/v0/vendors/6606", headers:, params: JSON.generate(vendor: vendor_params)
+    patch '/api/v0/vendors/6606', headers:, params: JSON.generate(vendor: vendor_params)
 
     expect(response).to_not be_successful
 
@@ -162,7 +162,7 @@ describe 'vendors api' do
 
   it 'displays an error if an attribute update is left empty' do
     vendor_id = create(:vendor).id
-    previous = Vendor.last.contact_name
+    Vendor.last.contact_name
     vendor_params = {
       name: 'Buzzy Bees',
       description: 'local honey and wax products',
@@ -180,15 +180,23 @@ describe 'vendors api' do
     expect(vendor_update).to eq({ "error": "Validation failed: Contact name can't be blank" })
   end
 
-  it "can destroy an book" do
+  it 'can destroy an vendor' do
     vendor = create(:vendor)
-  
+
     expect(Vendor.count).to eq(1)
-  
+
     delete "/api/v0/vendors/#{vendor.id}"
-  
+
     expect(response).to be_successful
     expect(Vendor.count).to eq(0)
-    expect{ Vendor.find(vendor.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    expect { Vendor.find(vendor.id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  it 'displays error if invalid id is passed' do
+    delete '/api/v0/vendors/1'
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+    expect { Vendor.find(1) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 end
