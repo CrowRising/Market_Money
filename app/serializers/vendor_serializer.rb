@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VendorSerializer
   include JSONAPI::Serializer
   attributes :name,

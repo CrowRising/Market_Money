@@ -1,4 +1,6 @@
-class MarketSerializer 
+# frozen_string_literal: true
+
+class MarketSerializer
   include JSONAPI::Serializer
   attributes :name,
              :street,

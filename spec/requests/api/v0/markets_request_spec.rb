@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "markets api" do
+describe 'markets api' do
   it ' has a list of all markets' do
     create_list(:market, 3)
 
@@ -8,7 +10,7 @@ describe "markets api" do
     expect(response).to be_successful
 
     markets = JSON.parse(response.body, symbolize_names: true)[:data]
-  # require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     expect(markets.count).to eq(3)
 
     markets.each do |market|
@@ -106,11 +108,11 @@ describe "markets api" do
     @market_1 = create(:market)
     create_list(:vendor, 4, market_ids: @market_1.id)
 
-    get "/api/v0/markets/4050033"
+    get '/api/v0/markets/4050033'
     expect(response).to_not be_successful
 
     markets = JSON.parse(response.body, symbolize_names: true)
 
     expect(markets).to eq({ "error": "Couldn't find Market with 'id'=4050033" })
   end
- end
+end

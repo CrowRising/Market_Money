@@ -1,25 +1,36 @@
-class Api::V0::VendorsController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-    market = Market.find(params[:market_id])
-    render json: VendorSerializer.new(market.vendors)
-  end
+module Api
+  module V0
+    class VendorsController < ApplicationController
+      def index
+        market = Market.find(params[:market_id])
+        render json: VendorSerializer.new(market.vendors)
+      end
 
-  def show
-    render json: VendorSerializer.new(Vendor.find(params[:id]))
-  end
+      def show
+        render json: VendorSerializer.new(Vendor.find(params[:id]))
+      end
 
-  def create
-    render json: Vendor.create(vendor_params), status: 201
-  end
+      def create
+        vendor = Vendor.create!(vendor_params)
+        render json: VendorSerializer.new(vendor)
+      end
 
-  private
+      def update
+        vendor = Vendor.update!(params[:id], vendor_params)
+        render json: VendorSerializer.new(vendor)
+      end
 
-  def vendor_params
-    params.require(:vendor).permit(:name, 
-                                   :description, 
-                                   :contact_name, 
-                                   :contact_phone, 
-                                   :credit_accepted)
+      private
+
+      def vendor_params
+        params.require(:vendor).permit(:name,
+                                       :description,
+                                       :contact_name,
+                                       :contact_phone,
+                                       :credit_accepted)
+      end
+    end
   end
 end

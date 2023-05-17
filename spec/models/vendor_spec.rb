@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Vendor, type: :model do
@@ -6,7 +8,7 @@ RSpec.describe Vendor, type: :model do
     it { should have_many(:markets).through(:market_vendors) }
   end
 
-  describe 'validations' do 
+  describe 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:contact_name) }
