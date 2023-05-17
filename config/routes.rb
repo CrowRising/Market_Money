@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :markets, only: %i[index show] do
         resources :vendors, only: [:index]
       end
-      resources :vendors, only: %i[show create update]
+      resources :vendors, only: %i[show create update destroy]
     end
   end
 end

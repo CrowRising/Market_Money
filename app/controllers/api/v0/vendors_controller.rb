@@ -22,6 +22,12 @@ module Api
         render json: VendorSerializer.new(vendor)
       end
 
+      def destroy
+        vendor = Vendor.delete(params[:id])
+        # render json: VendorSerializer.new(vendor)
+        # render json: VendorSerializer.new(Vendor.find(params[:id]))
+      end
+
       private
 
       def vendor_params
