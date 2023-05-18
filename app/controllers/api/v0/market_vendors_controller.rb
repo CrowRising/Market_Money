@@ -38,10 +38,6 @@ module Api
         end
       end
 
-      # def destroy
-      #   MarketVendor.find_by(market_id: mk_params[:market_id], vendor_id: mk_params[:vendor_id]).destroy
-      # end
-
       private
 
       def mk_params
