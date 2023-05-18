@@ -24,15 +24,23 @@ module Api
       end
 
       def destroy
-        MarketVendor.find_by(market_id: mk_params[:market_id], vendor_id: mk_params[:vendor_id]).destroy
-
-        # if market_vendor.nil?
-        #   render_not_found_response(market_vendor)
-        # else
-        #   market_vendor.destroy
-        #   render status: 204
-        # end
+        market_vendor = MarketVendor.find_by(market_id: mk_params[:market_id], vendor_id: mk_params[:vendor_id])
+        if market_vendor.nil?
+          render json: {
+            "errors": [
+              {
+                "detail": 'No MarketVendor with market_id=4233 AND vendor_id=11520 exists'
+              }
+            ]
+          }, status: 404
+        else
+          market_vendor.destroy
+        end
       end
+
+      # def destroy
+      #   MarketVendor.find_by(market_id: mk_params[:market_id], vendor_id: mk_params[:vendor_id]).destroy
+      # end
 
       private
 
