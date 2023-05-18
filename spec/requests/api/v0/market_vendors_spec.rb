@@ -55,7 +55,7 @@ describe 'market vendors api' do
   it 'displays error message when market vendor cannot be found' do
     market_1 = create(:market, id: 322_474)
     vendor_1 = create(:vendor, id: 54_861)
-    mkv = MarketVendor.create(market_id: market_1.id, vendor_id: vendor_1.id)
+    MarketVendor.create(market_id: market_1.id, vendor_id: vendor_1.id)
 
     body = { market_id: 4233, vendor_id: 11_520 }
     delete '/api/v0/market_vendors', params: { market_vendor: body }
