@@ -116,3 +116,53 @@ describe 'markets api' do
     expect(markets).to eq({ "error": "Couldn't find Market with 'id'=4050033" })
   end
 end
+
+describe 'search markets api' do
+  it 'can accept a certain combo of parameters' do
+    market_1 = create(:market)
+    get '/api/v0/markets/search', params: { state: market_1.state, name: market_1.name, city: market_1.city }
+
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+
+    market = JSON.parse(response.body, symbolize_names: true)[:data].first
+
+    expect(market[:id]).to eq(market_1.id.to_s)
+
+    expect(market).to have_key(:attributes)
+    expect(market[:attributes]).to be_a(Hash)
+
+    expect(market[:attributes][:name]).to eq(market_1.name)
+    expect(market[:attributes][:street]).to eq(market_1.street)
+    expect(market[:attributes][:city]).to eq(market_1.city)
+    expect(market[:attributes][:state]).to eq(market_1.state)
+    expect(market[:attributes][:zip]).to eq(market_1.zip)
+    expect(market[:attributes][:county]).to eq(market_1.county)
+    expect(market[:attributes][:lat]).to eq(market_1.lat)
+    expect(market[:attributes][:lon]).to eq(market_1.lon)
+  end
+
+  it 'displays an error message when only city is passed' do
+    market = create(:market)
+    get '/api/v0/markets/search', params: { city: market.city }
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(422)
+
+    markets = JSON.parse(response.body, symbolize_names: true)
+
+    expect(markets).to eq({ "errors": [{ "detail": 'Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.' }] })
+  end
+
+  it 'displays an error message when only city and name is passed' do
+    market = create(:market)
+    get '/api/v0/markets/search', params: { name: market.name, city: market.city }
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(422)
+
+    markets = JSON.parse(response.body, symbolize_names: true)
+
+    expect(markets).to eq({ "errors": [{ "detail": 'Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.' }] })
+  end
+end
